@@ -1,0 +1,117 @@
+<div class="container control__panel preloader">
+    <div class="row py-5">
+        <div class="col-md-4 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Add patient</span>
+            </h4>
+            <form class="card p-2 needs-validation patient__form" novalidate="" action="/api/patients" data-type="patient">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label for="patient_name">Name</label>
+                        <input type="text" class="form-control" id="patient_name" name="name" required="" placeholder="John Jackson">
+                        <div class="invalid-feedback">
+                            Please provide patient name.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label for="sex">Sex</label>
+                        <select class="custom-select d-block w-100" id="sex" name="sex">
+                            <option value="">Choose...</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label for="patient">Date of birth</label>
+                        <select class="custom-select d-block w-100" name="birthdate" id="birthdate">
+                            <option value="">Choose...</option>
+
+                        </select>
+
+                    </div>
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-primary" type="submit">Create</button>
+            </form>
+        </div>
+        <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Schedule study</h4>
+            <form class="needs-validation study__form" novalidate="" action="/api/study" data-type="study">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="patient">Patient</label>
+                        <select class="custom-select d-block w-100" id="patient" required="">
+                            <option value="">Choose...</option>
+
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select patient.
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="patient">Doctor</label>
+                        <select class="custom-select d-block w-100" id="doctor" required="">
+                            <option value="">Choose...</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select doctor.
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="start-time">Start time</label>
+                        <select class="custom-select d-block w-100" id="start-time" name="start-time" required="">
+                            <option value="">Choose...</option>
+                            <option>United States</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please set start time.
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-6 mb-3">
+                        <label for="end-time">End time</label>
+                        <select class="custom-select d-block w-100" id="end-time" name="end-time">
+                            <option value="">Choose...</option>
+
+                        </select>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="room">Room</label>
+                        <select class="custom-select d-block w-100" id="room" required="">
+                            <option value="">Choose...</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select room.
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description" required="" placeholder="Study description"></textarea>
+                        <div class="invalid-feedback">
+                            Please write some description.
+                        </div>
+                    </div>
+
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-primary" type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
