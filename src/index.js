@@ -29,7 +29,7 @@ let app = {
             let $elem = $(elem);
             let is_time = $elem.hasClass('datepicker--time');
             let instance_config = {
-                format: is_time? 'hh:mm' : 'MMMM DD, YYYY',
+                format: is_time? 'LT' : 'MMMM DD, YYYY',
 
             };
             if(!is_time) {
