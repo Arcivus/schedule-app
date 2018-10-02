@@ -12,7 +12,6 @@ export default {
     $elements: {},
 
     init() {
-
         this.$elements = utils.parseComponent($(selectors.container), selectors);
         this.listeners();
         this.loadStudies();
@@ -24,16 +23,23 @@ export default {
         $body.on(`${events.DATA_UPDATE}:study`, this.loadStudies.bind(this));
     },
 
+    /**
+     * Get all studies from server and render them
+     */
     loadStudies() {
         this.$elements.container.addClass('preloader');
         $.ajax({
             type: "GET",
             url: '/api/studies',
             success: (data) => {
+                let $result;
                 if (data.length) {
-                    let $studies = data.map(this.renderStudy);
-                    this.$elements.container.html($studies);
+                    $result = data.map(this.renderStudy);
+                } else {
+                    $result = '<div class="notfound">No studies planned yet.</div>';
                 }
+
+                this.$elements.container.html($result);
                 this.$elements.container.removeClass('preloader')
             }
         });
@@ -76,8 +82,8 @@ export default {
                    <div class="card-body">
                         <div class="card-text">
                             <div><strong>Room:</strong> ${study_data.room.name}</div>
-                            <div><strong>Start time:</strong> ${study_data['start-time']}</div>
-                            ${study_data['end-time'] ? `<div><strong>End time:</strong> ${study_data['end-time']}</div>` : ''}
+                            <div><strong>Start time:</strong> ${study_data.start_time}</div>
+                            ${study_data.end_time ? `<div><strong>End time:</strong> ${study_data.end_time}</div>` : ''}
                             <p><strong>Description:</strong> ${study_data.description}</p>
                             <div>
                                 <label for="select-${study_data.id}"><strong>Status</strong></label>

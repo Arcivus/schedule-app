@@ -19,6 +19,19 @@ module.exports = {
                 ]
             },
             {
+                test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
+                loader: 'url-loader',
+                options: { limit: 10000, mimetype: 'application/font-woff2', publicPath: '/dist' } },
+            {
+                test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
+                loader: 'url-loader',
+                options: { limit: 10000, mimetype: 'application/font-woff', publicPath: '/dist' } },
+            {
+                test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
+                loader: 'file-loader',
+                options: { publicPath: '/dist'}
+                },
+            {
                 test: /\.scss$/,
                 use: [
                     {
@@ -59,9 +72,6 @@ module.exports = {
             template: "!!html-loader?interpolate!./src/index.html",
             filename: "../index.html",
             inject: true
-        }),
-        new webpack.ProvidePlugin({
-            $: 'jquery'
         })
     ]
 };

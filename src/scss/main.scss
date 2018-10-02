@@ -1,6 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
+$fa-font-path: "~font-awesome/fonts/";
+@import "~font-awesome/scss/font-awesome";
 @import "~bootstrap-datepicker/dist/css/bootstrap-datepicker.css";
-@import "~eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css";
+@import "~pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css";
 
 @import "./base/reset";
 @import "./base/variables";

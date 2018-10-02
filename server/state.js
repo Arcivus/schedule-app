@@ -52,17 +52,7 @@ module.exports = {
      * @returns {array}
      */
     getStudies() {
-        let studies = store.studies.map(study => {
-            let updated_data = {
-                doctor: getEntityById(study.doctor, 'doctors'),
-                patient: getEntityById(study.patient, 'patients'),
-                room: getEntityById(study.room, 'rooms')
-            };
-            return Object.assign({}, study, updated_data);
-
-        });
-        console.log(store.studies);
-        return studies;
+        return store.studies.map(study => this.getStudy(study.id));
     },
 
     /**

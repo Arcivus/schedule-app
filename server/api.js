@@ -35,8 +35,6 @@ module.exports = function (router) {
         }
     });
 
-
-
     // Update study status
     router.route('/study/:id').put((req, res) => {
         let result = state.updateStudyStatus(req.params.id, req.body.status);

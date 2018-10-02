@@ -1,15 +1,11 @@
 import $ from "jquery";
 import './scss/main.scss';
 import events from './js/events';
-import 'moment';
-import 'bootstrap/js/dist/collapse.js';
-// import 'bootstrap/js/dist/transition.js';
-import 'bootstrap-datepicker';
-import 'eonasdan-bootstrap-datetimepicker';
+import moment from 'moment';
+import 'pc-bootstrap4-datetimepicker';
 
 import control_panel from './js/components/control-panel';
 import studies_list from './js/components/studies-list';
-
 
 let app = {
     init() {
@@ -28,7 +24,22 @@ let app = {
      * Initialize datepickers
      */
     initDate() {
-        $('.datepicker').datetimepicker();
+        $('.datepicker').each((index, elem) => {
+
+            let $elem = $(elem);
+            let is_time = $elem.hasClass('datepicker--time');
+            let instance_config = {
+                format: is_time? 'hh:mm' : 'MMMM DD, YYYY',
+
+            };
+            if(!is_time) {
+                instance_config.maxDate = moment().add(1, 'days');
+                instance_config.viewMode = 'years';
+
+            }
+            $elem.datetimepicker(instance_config);
+        });
+
     },
 
     /**
