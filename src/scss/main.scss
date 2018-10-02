@@ -1,4 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-datepicker/dist/css/bootstrap-datepicker.css";
+@import "~eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css";
 
 @import "./base/reset";
 @import "./base/variables";
@@ -7,3 +9,4 @@
 @import "./utils/mixins";
 
 @import "./components/form";
+@import "./components/preloader";

@@ -34,10 +34,52 @@ const store = {
     studies: []
 };
 
+/**
+ * @param id {String}
+ * @param type {String}
+ */
+function getEntityById(id, type) {
+    return store[type].find(entity => entity.id === id);
+}
 
 module.exports = {
     getStore() {
         return store;
+    },
+
+    /**
+     * Return list of studies also replacing ids with referred entries
+     * @returns {array}
+     */
+    getStudies() {
+        let studies = store.studies.map(study => {
+            let updated_data = {
+                doctor: getEntityById(study.doctor, 'doctors'),
+                patient: getEntityById(study.patient, 'patients'),
+                room: getEntityById(study.room, 'rooms')
+            };
+            return Object.assign({}, study, updated_data);
+
+        });
+        console.log(store.studies);
+        return studies;
+    },
+
+    /**
+     * return study while also replasing ids with referred entries
+     * @param id {String} study id
+     * @returns {*}
+     */
+    getStudy(id) {
+        let study = Object.assign({}, store.studies.find(_study => _study.id === id));
+        console.log(store.studies);
+        if(!study){
+            return null;
+        }
+        study.doctor = getEntityById(study.doctor, 'doctors');
+        study.patient = getEntityById(study.patient, 'patients');
+        study.room = getEntityById(study.room, 'rooms');
+        return study;
     },
 
     addPatient(params) {
@@ -47,9 +89,9 @@ module.exports = {
     },
 
     addStudy(params) {
-        let study = Object.assign({}, params, {id: utils.guid()});
+        let study = Object.assign({}, params, {id: utils.guid(), status: '0'});
         store.studies.push(study);
-        return study;
+        return this.getStudy(study.id);
     },
 
     updateStudyStatus(id, status) {
@@ -58,6 +100,6 @@ module.exports = {
             return `Study with id "${id}" was not found`;
         }
         study.status = status;
-        return study;
+        return this.getStudy(study.id);
     }
 };

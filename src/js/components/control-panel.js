@@ -33,6 +33,7 @@ export default {
                 this.updateSelectData(data.patients, this.$elements.patient_select);
                 this.updateSelectData(data.rooms, this.$elements.room_select);
                 this.updateSelectData(data.doctors, this.$elements.doctor_select);
+                this.$elements.container.removeClass('preloader');
             }
         });
     },

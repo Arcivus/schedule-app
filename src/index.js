@@ -1,6 +1,11 @@
 import $ from "jquery";
 import './scss/main.scss';
 import events from './js/events';
+import 'moment';
+import 'bootstrap/js/dist/collapse.js';
+// import 'bootstrap/js/dist/transition.js';
+import 'bootstrap-datepicker';
+import 'eonasdan-bootstrap-datetimepicker';
 
 import control_panel from './js/components/control-panel';
 import studies_list from './js/components/studies-list';
@@ -11,12 +16,25 @@ let app = {
         this.listeners();
         control_panel.init();
         studies_list.init();
+        this.initDate();
     },
     listeners() {
         let $body = $('body');
         $body.on('submit', 'form', this.handleFormSubmit.bind(this));
+
     },
 
+    /**
+     * Initialize datepickers
+     */
+    initDate() {
+        $('.datepicker').datetimepicker();
+    },
+
+    /**
+     * Check form validity and send data by ajax
+     * @param e
+     */
     handleFormSubmit(e) {
         e.preventDefault();
         let form = e.currentTarget;

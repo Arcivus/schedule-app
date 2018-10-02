@@ -28,11 +28,7 @@
                 <div class="row">
                     <div class="col-md-12 mb-3">
                         <label for="patient">Date of birth</label>
-                        <select class="custom-select d-block w-100" name="birthdate" id="birthdate">
-                            <option value="">Choose...</option>
-
-                        </select>
-
+                        <input class="form-control datepicker" name="birthdate" id="birthdate">
                     </div>
                 </div>
                 <hr class="mb-4">
@@ -45,7 +41,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="patient">Patient</label>
-                        <select class="custom-select d-block w-100" id="patient" required="">
+                        <select class="custom-select d-block w-100" name="patient" id="patient" required="">
                             <option value="">Choose...</option>
 
                         </select>
@@ -56,7 +52,7 @@
 
                     <div class="col-md-6 mb-3">
                         <label for="patient">Doctor</label>
-                        <select class="custom-select d-block w-100" id="doctor" required="">
+                        <select class="custom-select d-block w-100" name="doctor" id="doctor" required="">
                             <option value="">Choose...</option>
                         </select>
                         <div class="invalid-feedback">
@@ -69,30 +65,21 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="start-time">Start time</label>
-                        <select class="custom-select d-block w-100" id="start-time" name="start-time" required="">
-                            <option value="">Choose...</option>
-                            <option>United States</option>
-                        </select>
+                        <input class="form-control datepicker datepicker--time" name="start-time" id="start-time" required="">
                         <div class="invalid-feedback">
                             Please set start time.
                         </div>
                     </div>
 
-
-
                     <div class="col-md-6 mb-3">
                         <label for="end-time">End time</label>
-                        <select class="custom-select d-block w-100" id="end-time" name="end-time">
-                            <option value="">Choose...</option>
-
-                        </select>
-
+                        <input class="form-control datepicker datepicker--time" name="end-time" id="end-time">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="room">Room</label>
-                        <select class="custom-select d-block w-100" id="room" required="">
+                        <select class="custom-select d-block w-100" name="room" id="room" required="">
                             <option value="">Choose...</option>
                         </select>
                         <div class="invalid-feedback">

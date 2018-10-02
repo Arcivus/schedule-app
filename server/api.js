@@ -8,6 +8,11 @@ module.exports = function (router) {
         res.json(state.getStore());
     });
 
+    // get list of all studies
+    router.route('/studies').get((req, res) => {
+        res.json(state.getStudies());
+    });
+
     // Add patient
     router.route('/patients').post((req, res) => {
         let validation = utils.validate(req.body);
@@ -29,6 +34,8 @@ module.exports = function (router) {
             res.json(utils.errorResponse(validation));
         }
     });
+
+
 
     // Update study status
     router.route('/study/:id').put((req, res) => {

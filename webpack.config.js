@@ -59,6 +59,9 @@ module.exports = {
             template: "!!html-loader?interpolate!./src/index.html",
             filename: "../index.html",
             inject: true
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery'
         })
     ]
 };

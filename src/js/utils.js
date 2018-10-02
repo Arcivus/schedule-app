@@ -12,6 +12,7 @@ export default {
                 $elements[name] = $container.find(selectors[name]);
             }
         }
+        $elements.container = $container;
 
         return $elements;
     }
