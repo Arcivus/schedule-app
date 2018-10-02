@@ -4,6 +4,11 @@
 
 [Node](http://nodejs.org/)
 
+## Install
+    npm install
+    
+Installs modules required to run node server
+
 ## Start
 
      npm start

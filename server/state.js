@@ -62,7 +62,6 @@ module.exports = {
      */
     getStudy(id) {
         let study = Object.assign({}, store.studies.find(_study => _study.id === id));
-        console.log(store.studies);
         if(!study){
             return null;
         }
