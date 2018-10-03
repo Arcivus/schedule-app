@@ -9,6 +9,11 @@
     
 Installs modules required to run node server
 
+## Build
+    npm run build
+
+Builds frontend modules
+
 ## Start
 
      npm start
